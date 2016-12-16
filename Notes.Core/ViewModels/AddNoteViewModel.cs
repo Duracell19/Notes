@@ -1,0 +1,71 @@
+﻿using MvvmCross.Core.ViewModels;
+using Note.Infrastructure;
+using Note.Infrastructure.Interfaces;
+using Note.Models;
+using System;
+using System.Collections.Generic;
+using System.Windows.Input;
+
+namespace Notes.Core.ViewModels
+{
+    public class AddNoteViewModel : MvxViewModel
+    {
+        private readonly IFileService _fileService;
+        private readonly IJsonConverterService _jsonConverter;
+        private NoteInfo _noteInfo;
+        private List<NoteInfo> _notes;
+        private string _title;
+        private string _text;
+
+        public ICommand SaveNoteCommand { get; set; }
+
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                RaisePropertyChanged(() => Title);
+            }
+        }
+
+        public string Text
+        {
+            get { return _text; }
+            set
+            {
+                _text = value;
+                RaisePropertyChanged(() => Text);
+            }
+        }
+
+        public AddNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter)
+        {
+            _fileService = fileService;
+            _jsonConverter = jsonConverter;
+
+            SaveNoteCommand = new MvxCommand(SaveNoteAsync);
+        }
+
+        public void Init(string param)
+        {
+            _noteInfo = new NoteInfo();
+            _notes = _jsonConverter.Deserialize<List<NoteInfo>>(param);
+            if (_notes == null)
+            {
+                _notes = new List<NoteInfo>();
+            }
+        }
+
+        private async void SaveNoteAsync()
+        {
+            _noteInfo.Text = Text;
+            _noteInfo.Title = Title;
+            _noteInfo.DateOfCreation = string.Format("Date of creation: {0}", DateTime.Now.ToString());
+            _noteInfo.DateOfLastChange = "Date of last change: The note hasn't been modified";
+            _notes.Add(_noteInfo);
+            await _fileService.SaveAsync(Defines.NOTES_FILE_NAME, _notes);
+            ShowViewModel<MainPageViewModel>();
+        }
+    }
+}
