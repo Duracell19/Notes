@@ -120,9 +120,6 @@
   <data name="add.Label" xml:space="preserve">
     <value>Добавить</value>
   </data>
-  <data name="DateOfCreation" xml:space="preserve">
-    <value>Дата создания:</value>
-  </data>
   <data name="delete.Label" xml:space="preserve">
     <value>Удалить</value>
   </data>
@@ -149,8 +146,5 @@
   </data>
   <data name="title.PlaceholderText" xml:space="preserve">
     <value>Введите название записи..</value>
-  </data>
-  <data name="DateOfLastChange" xml:space="preserve">
-    <value>Дата последнего изменения:</value>
   </data>
 </root>

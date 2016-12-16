@@ -120,12 +120,6 @@
   <data name="add.Label" xml:space="preserve">
     <value>Add</value>
   </data>
-  <data name="DateOfCreation" xml:space="preserve">
-    <value>Date of creation:</value>
-  </data>
-  <data name="DateOfLastChange" xml:space="preserve">
-    <value>Date of last change:</value>
-  </data>
   <data name="delete.Label" xml:space="preserve">
     <value>Delete</value>
   </data>
