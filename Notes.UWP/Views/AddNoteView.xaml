@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBox x:Uid="title" 
-                 Text="{Binding Title, Mode=TwoWay}"
+                 Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Style="{StaticResource TextBoxTitleStyle}"/>
         <local:RichEditEx  x:Uid="text" 
                            Grid.Row="1"
@@ -25,7 +25,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Uid="save" 
-                          Style="{StaticResource AppBarSaveStyle}" 
+                          Icon="Accept"
                           IsEnabled="{Binding Title, Converter={StaticResource SetVisibilityButton}}"
                           Command="{Binding SaveNoteCommand}"/>
         </CommandBar>

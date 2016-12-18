@@ -11,8 +11,7 @@
 
     <Grid Background="Gray">
         <StackPanel>
-            <AutoSuggestBox x:Name="search" 
-                            x:Uid="searchText" 
+            <AutoSuggestBox x:Uid="searchText" 
                             Style="{StaticResource AutoSuggestBoxSearchStyle}">
                 <i:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="TextChanged">
@@ -55,13 +54,13 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Uid="add"
-                          Style="{StaticResource AppBarAddStyle}"
+                          Icon="Add"
                           Command="{Binding Commands.AddNoteCommand}"/>
             <AppBarButton x:Uid="sort" 
-                          Style="{StaticResource AppBarSortStyle}" 
+                          Icon="Sort"
                           Command="{Binding Commands.SortNotesCommand}"/>
             <AppBarButton x:Uid="info" 
-                          Style="{StaticResource AppBarInfoStyle}"
+                          Icon="Help"
                           Command="{Binding Commands.ShowInfoCommand}"/>
         </CommandBar>
     </Page.BottomAppBar>

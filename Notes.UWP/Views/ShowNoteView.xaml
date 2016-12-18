@@ -26,13 +26,13 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Uid="save" 
-                          Style="{StaticResource AppBarSaveStyle}"
+                          Icon="Accept"
                           Command="{Binding SaveNoteCommand}"/>
             <AppBarButton x:Uid="edit"
-                          Style="{StaticResource AppBarEditStyle}"
+                          Icon="Edit"
                           Command="{Binding EditNoteCommand}"/>
             <AppBarButton x:Uid="delete"
-                          Style="{StaticResource AppBarDeleteStyle}"
+                          Icon="Delete"
                           Command="{Binding DeleteNoteCommand}"/>
         </CommandBar>
     </Page.BottomAppBar>

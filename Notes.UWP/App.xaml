@@ -37,30 +37,6 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
-        <Style TargetType="AppBarButton" x:Key="AppBarAddStyle">
-            <Setter Property="Icon" Value="Add"/>
-        </Style>
-
-        <Style TargetType="AppBarButton" x:Key="AppBarSortStyle">
-            <Setter Property="Icon" Value="Sort"/>
-        </Style>
-
-        <Style TargetType="AppBarButton" x:Key="AppBarInfoStyle">
-            <Setter Property="Icon" Value="Help"/>
-        </Style>
-
-        <Style TargetType="AppBarButton" x:Key="AppBarSaveStyle">
-            <Setter Property="Icon" Value="Accept"/>
-        </Style>
-        
-        <Style TargetType="AppBarButton" x:Key="AppBarEditStyle">
-            <Setter Property="Icon" Value="Edit"/>
-        </Style>
-        
-        <Style TargetType="AppBarButton" x:Key="AppBarDeleteStyle">
-            <Setter Property="Icon" Value="Delete"/>
-        </Style>
-
         <Style TargetType="TextBox" x:Key="TextBoxTitleStyle">
             <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
             <Setter Property="FontSize" Value="15"/>
