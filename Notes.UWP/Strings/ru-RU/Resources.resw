@@ -120,6 +120,9 @@
   <data name="add.Label" xml:space="preserve">
     <value>Добавить</value>
   </data>
+  <data name="attach.Label" xml:space="preserve">
+    <value>Прикрепить файл</value>
+  </data>
   <data name="delete.Label" xml:space="preserve">
     <value>Удалить</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="info.Label" xml:space="preserve">
     <value>Инфо</value>
+  </data>
+  <data name="infoText.Text" xml:space="preserve">
+    <value>Приложение разработано для ведения записей. Оно создано при помощи MvvmCross. Вы можете добавлять, изменять, просматривтаь, а так же удалять записи.</value>
   </data>
   <data name="notes.Text" xml:space="preserve">
     <value>Записи не найдены</value>

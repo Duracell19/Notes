@@ -2,6 +2,9 @@
 
 namespace Note.Models
 {
+    /// <summary>
+    /// This class is used to define a model of MainPageVieModel's commands
+    /// </summary>
     public class MainPageCommands
     {
         public ICommand AddNoteCommand { get; set; }

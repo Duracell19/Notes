@@ -14,12 +14,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBox x:Uid="title" 
-                 Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Style="{StaticResource TextBoxTitleStyle}"/>
+                 Text="{Binding Title, Mode=TwoWay}"
+                 FontFamily="Segoe WP Semibold"
+                 FontSize="15"/>
         <local:RichEditEx  x:Uid="text" 
                            Grid.Row="1"
                            Text="{Binding Text, Mode=TwoWay}" 
-                           Style="{StaticResource RichEditBoxTextStyle}"/>
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="25"/>
     </Grid>
 
     <Page.BottomAppBar>
@@ -28,6 +30,9 @@
                           Icon="Accept"
                           IsEnabled="{Binding Title, Converter={StaticResource SetVisibilityButton}}"
                           Command="{Binding SaveNoteCommand}"/>
+            <AppBarButton x:Uid="attach" 
+                          Icon="Attach"
+                          Command="{Binding AttachFileCommand}"/>
         </CommandBar>
     </Page.BottomAppBar>
 

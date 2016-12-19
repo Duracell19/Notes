@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="Gray">
-        <TextBlock Text="{Binding TextAbout}"
+        <TextBlock x:Uid="infoText"
                    Style="{StaticResource TextBlockInfoStyle}"/>
     </Grid>
 

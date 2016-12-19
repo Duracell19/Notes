@@ -23,7 +23,10 @@ namespace Notes.Core.ViewModels
         public ICommand SaveNoteCommand { get; set; }
         public ICommand EditNoteCommand { get; set; }
         public ICommand DeleteNoteCommand { get; set; }
-
+        public ICommand AttachFileCommand { get; set; }
+        /// <summary>
+        /// This properties are used to binding ShowNoteView and ShowNoteViewModel
+        /// </summary>
         public string Title
         {
             get { return _title; }
@@ -53,10 +56,13 @@ namespace Notes.Core.ViewModels
                 RaisePropertyChanged(() => IsNoteEnabled);
             }
         }
-
-        public ShowNoteViewModel(IFileService fileService,
-            IJsonConverterService jsonConverter,
-            IChangeNoteService changeNoteService)
+        /// <summary>
+        /// This is constructor
+        /// </summary>
+        /// <param name="fileService">This is parameter used to work with file service</param>
+        /// <param name="jsonConverter">This is parameter used to work with json converter service</param>
+        /// <param name="changeNoteService">This is parameter used to work with change note service</param>
+        public ShowNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter, IChangeNoteService changeNoteService)
         {
             _fileService = fileService;
             _jsonConverter = jsonConverter;
@@ -65,8 +71,13 @@ namespace Notes.Core.ViewModels
             SaveNoteCommand = new MvxCommand(SaveNoteAsync);
             EditNoteCommand = new MvxCommand(EditNote);
             DeleteNoteCommand = new MvxCommand(DeleteNoteAsync);
+            AttachFileCommand = new MvxCommand(AttachFile);
         }
-
+        /// <summary>
+        /// This is asynchronous method to initialize variables
+        /// </summary>
+        /// <param name="param">This is parameter which came from MainPageViewModel</param>
+        /// <returns>This method return Task</returns>
         public async Task Init(string param)
         {
             _notes = new List<NoteInfo>();
@@ -77,7 +88,9 @@ namespace Notes.Core.ViewModels
 
             _notes = await _fileService.LoadAsync<List<NoteInfo>>(Defines.NOTES_FILE_NAME);
         }
-
+        /// <summary>
+        /// This command to save notes
+        /// </summary>
         private async void SaveNoteAsync()
         {
             var item = new NoteInfo();
@@ -88,16 +101,27 @@ namespace Notes.Core.ViewModels
             await _changeNoteService.SaveAsync(_notes, item);
             ShowViewModel<MainPageViewModel>();
         }
-
+        /// <summary>
+        /// This command to edit note
+        /// </summary>
         private void EditNote()
         {
             IsNoteEnabled = true;
         }
-
+        /// <summary>
+        /// This command to delete note
+        /// </summary>
         private async void DeleteNoteAsync()
         {
             await _changeNoteService.DeleteAsync(_notes, _noteInfo);
             ShowViewModel<MainPageViewModel>();
+        }
+        /// <summary>
+        /// This command to attach file
+        /// </summary>
+        private void AttachFile()
+        {
+
         }
     }
 }

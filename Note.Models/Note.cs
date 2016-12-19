@@ -1,5 +1,8 @@
 ﻿namespace Note.Models
 {
+    /// <summary>
+    /// This class is used to define a model of notes
+    /// </summary>
     public class NoteInfo
     {
         public string Title { get; set; }

@@ -120,6 +120,9 @@
   <data name="add.Label" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="attach.Label" xml:space="preserve">
+    <value>Attach file</value>
+  </data>
   <data name="delete.Label" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="info.Label" xml:space="preserve">
     <value>Info</value>
+  </data>
+  <data name="infoText.Text" xml:space="preserve">
+    <value>The application was created to write a notes. It was developed with MvvmCross. You can add, view, change, and delete the notes.</value>
   </data>
   <data name="notes.Text" xml:space="preserve">
     <value>No notes</value>

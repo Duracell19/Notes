@@ -18,7 +18,10 @@ namespace Notes.Core.ViewModels
         private string _text;
 
         public ICommand SaveNoteCommand { get; set; }
-
+        public ICommand AttachFileCommand { get; set; }
+        /// <summary>
+        /// This properties are used to binding AddNoteView and AddNoteViewModel
+        /// </summary>
         public string Title
         {
             get { return _title; }
@@ -38,15 +41,23 @@ namespace Notes.Core.ViewModels
                 RaisePropertyChanged(() => Text);
             }
         }
-
+        /// <summary>
+        /// This is constructor
+        /// </summary>
+        /// <param name="fileService">This is parameter used to work with file service</param>
+        /// <param name="jsonConverter">This is parameter used to work with json converter service</param>
         public AddNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter)
         {
             _fileService = fileService;
             _jsonConverter = jsonConverter;
 
             SaveNoteCommand = new MvxCommand(SaveNoteAsync);
+            AttachFileCommand = new MvxCommand(AttachFile);
         }
-
+        /// <summary>
+        /// This is method to initialize variables
+        /// </summary>
+        /// <param name="param">This is parameter which came from MainPageViewModel</param>
         public void Init(string param)
         {
             _noteInfo = new NoteInfo();
@@ -56,7 +67,9 @@ namespace Notes.Core.ViewModels
                 _notes = new List<NoteInfo>();
             }
         }
-
+        /// <summary>
+        /// This command is used to save notes
+        /// </summary>
         private async void SaveNoteAsync()
         {
             _noteInfo.Text = Text;
@@ -66,6 +79,13 @@ namespace Notes.Core.ViewModels
             _notes.Add(_noteInfo);
             await _fileService.SaveAsync(Defines.NOTES_FILE_NAME, _notes);
             ShowViewModel<MainPageViewModel>();
+        }
+        /// <summary>
+        /// This command is used to attach file
+        /// </summary>
+        private void AttachFile()
+        {
+
         }
     }
 }

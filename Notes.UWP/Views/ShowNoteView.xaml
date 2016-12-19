@@ -15,12 +15,14 @@
         </Grid.RowDefinitions>
         <TextBox Text="{Binding Title, Mode=TwoWay}"
                  IsEnabled="false"
-                 Style="{StaticResource TextBoxTitleStyle}"/>
+                 FontFamily="Segoe WP Semibold"
+                 FontSize="15"/>
         <local:RichEditEx  x:Uid="text"
                            Grid.Row="1"
                            Text="{Binding Text,Mode=TwoWay}"
                            IsEnabled="{Binding IsNoteEnabled}"
-                           Style="{StaticResource RichEditBoxTextStyle}"/>
+                           FontFamily="Segoe UI Semibold"
+                           FontSize="25"/>
     </Grid>
 
     <Page.BottomAppBar>
@@ -34,6 +36,9 @@
             <AppBarButton x:Uid="delete"
                           Icon="Delete"
                           Command="{Binding DeleteNoteCommand}"/>
+            <AppBarButton x:Uid="attach" 
+                          Icon="Attach"
+                          Command="{Binding AttachFileCommand}"/>
         </CommandBar>
     </Page.BottomAppBar>
 
