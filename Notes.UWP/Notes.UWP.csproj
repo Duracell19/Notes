@@ -139,6 +139,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Note.Infrastructure\Notes.Infrastructure.csproj">
+      <Project>{62A2DD86-758D-4378-847A-E55FE84BE097}</Project>
+      <Name>Notes.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Notes.Core\Notes.Core.csproj">
       <Project>{8f4ed4a8-e8ea-4c30-9bb9-50872cab42d4}</Project>
       <Name>Notes.Core</Name>

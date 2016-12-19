@@ -12,6 +12,7 @@ namespace Notes.Core.ViewModels
     {
         private readonly IFileService _fileService;
         private readonly IJsonConverterService _jsonConverter;
+        private readonly IAttachFileService _attachFileService;
         private NoteInfo _noteInfo;
         private List<NoteInfo> _notes;
         private string _title;
@@ -46,13 +47,15 @@ namespace Notes.Core.ViewModels
         /// </summary>
         /// <param name="fileService">This is parameter used to work with file service</param>
         /// <param name="jsonConverter">This is parameter used to work with json converter service</param>
-        public AddNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter)
+        /// <param name="attachFileService">This is parameter used to work with attach file service</param>
+        public AddNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter, IAttachFileService attachFileService)
         {
             _fileService = fileService;
             _jsonConverter = jsonConverter;
+            _attachFileService = attachFileService;
 
             SaveNoteCommand = new MvxCommand(SaveNoteAsync);
-            AttachFileCommand = new MvxCommand(AttachFile);
+            AttachFileCommand = new MvxCommand(AttachFileAsync);
         }
         /// <summary>
         /// This is method to initialize variables
@@ -83,7 +86,9 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command is used to attach file
         /// </summary>
-        private void AttachFile()
-        { }
+        private async void AttachFileAsync()
+        {
+            
+        }
     }
 }

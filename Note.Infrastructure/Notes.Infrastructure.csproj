@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Defines.cs" />
+    <Compile Include="Interfaces\IAttachFileService.cs" />
     <Compile Include="Interfaces\IFileService.cs" />
     <Compile Include="Interfaces\IJsonConverterService.cs" />
     <Compile Include="Interfaces\IChangeNoteService.cs" />

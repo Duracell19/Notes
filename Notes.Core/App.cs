@@ -21,6 +21,8 @@ namespace Notes.Core
             Mvx.RegisterType<IJsonConverterService, JsonConverterService>();
             Mvx.RegisterType<ISearchNotesService, SearchNotesService>();
             Mvx.RegisterType<ISortNotesService, SortNotesService>();
+            Mvx.RegisterType<IAttachFileService, AttachFileService>();
+            
 
             RegisterAppStart<MainPageViewModel>();
         }
