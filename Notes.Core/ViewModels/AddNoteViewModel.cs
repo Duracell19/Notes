@@ -20,7 +20,7 @@ namespace Notes.Core.ViewModels
         public ICommand SaveNoteCommand { get; set; }
         public ICommand AttachFileCommand { get; set; }
         /// <summary>
-        /// This properties are used to binding AddNoteView and AddNoteViewModel
+        /// This properties are used to binding AddNoteView and AddNoteViewModel.
         /// </summary>
         public string Title
         {

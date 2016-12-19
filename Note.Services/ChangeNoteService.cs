@@ -22,7 +22,7 @@ namespace Note.Services
         /// </summary>
         /// <param name="notes">This parameter is list of notes</param>
         /// <param name="saveItem">This parameter is current note</param>
-        /// <returns>This method return Task</returns>
+        /// <returns>This method return Task.</returns>
         public async Task SaveAsync(List<NoteInfo> notes, NoteInfo saveItem)
         {
             var index = IndexOfNote(notes, saveItem);
