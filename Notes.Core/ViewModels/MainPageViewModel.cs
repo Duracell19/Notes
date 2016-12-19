@@ -49,6 +49,7 @@ namespace Notes.Core.ViewModels
                 RaisePropertyChanged(() => IsNotesVisible);
             }
         }
+        
         /// <summary>
         /// This propertie is used to work with commands in MainPageViewModel
         /// </summary>

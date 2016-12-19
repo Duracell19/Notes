@@ -34,6 +34,7 @@ namespace Notes.UWP.Converters
                     case "docx": picture = "ms-appx:///Assets/docx.png"; break;
                     case "xls": picture = "ms-appx:///Assets/excel.png"; break;
                     case "xlsx": picture = "ms-appx:///Assets/excel.png"; break;
+                    default: picture = "ms-appx:///Assets/unknown.png"; break;
                 }
             }
             return picture;

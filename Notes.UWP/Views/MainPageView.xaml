@@ -10,52 +10,60 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core">
 
     <Grid Background="Gray">
-        <StackPanel>
-            <AutoSuggestBox x:Name="search"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <AutoSuggestBox Grid.Row="0"  
+                            x:Name="search"
                             x:Uid="searchText"
                             FontFamily="Segoe WP Semibold"
                             FontSize="20"
                             QueryIcon="Find">
-                <i:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="TextChanged">
-                        <core:InvokeCommandAction Command="{Binding Commands.SearchNoteCommand}" 
-                                                  CommandParameter="{Binding ElementName=search, Path=Text}"/>
-                    </core:EventTriggerBehavior>
-                </i:Interaction.Behaviors>
-            </AutoSuggestBox>
-            <Grid>
-                <ListView x:Name="notes" 
-                          ItemsSource="{Binding Notes}"
-                          SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
-                          Visibility="{Binding IsNotesVisible}">
-                    <i:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="SelectionChanged">
-                            <core:InvokeCommandAction Command="{Binding Commands.SelectNoteCommand}" 
-                                                      CommandParameter="{Binding ElementName=notes, Path=SelectedItem}"/>
-                        </core:EventTriggerBehavior>
-                    </i:Interaction.Behaviors>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Title}"
-                                           Style="{StaticResource TextBlockTitleStyle}"/>
-                                <TextBlock Text="{Binding DateOfCreation}"
-                                           Style="{StaticResource TextBlockDateStyle}"/>
-                                <TextBlock Text="{Binding DateOfLastChange}"
-                                           Style="{StaticResource TextBlockDateStyle}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <TextBlock x:Uid="notes"
-                           Visibility="{Binding IsNotesVisible, Converter={StaticResource SetVisibilityText}}"
-                           FontFamily="Segoe Print"
-                           FontSize="17"
-                           HorizontalAlignment="Center"/>
-            </Grid>
-        </StackPanel>
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="TextChanged">
+                    <core:InvokeCommandAction Command="{Binding Commands.SearchNoteCommand}"
+                                              CommandParameter="{Binding ElementName=search, Path=Text}"/>
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </AutoSuggestBox>
+        <ListView Grid.Row="1"
+                  x:Name="notes"
+                  ItemsSource="{Binding Notes}"
+                  SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
+                  Visibility="{Binding IsNotesVisible}">
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="SelectionChanged">
+                    <core:InvokeCommandAction Command="{Binding Commands.SelectNoteCommand}"
+                                              CommandParameter="{Binding ElementName=notes, Path=SelectedItem}"/>
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}"
+                                   Style="{StaticResource TextBlockTitleStyle}"/>
+                        <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
+                               Width="70"
+                               Height="70"/>
+                        <TextBlock Text="{Binding TitleOfAttachedFile}"
+                                   Style="{StaticResource TextBlockTitleOfAttachedFile}"/>
+                        <TextBlock Text="{Binding DateOfCreation}"
+                                   Style="{StaticResource TextBlockDateStyle}"/>
+                        <TextBlock Text="{Binding DateOfLastChange}"
+                                   Style="{StaticResource TextBlockDateStyle}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock Grid.Row="1"
+                   x:Uid="notes"
+                   Visibility="{Binding IsNotesVisible, Converter={StaticResource SetVisibilityText}}"
+                   FontFamily="Segoe Print"
+                   FontSize="17"
+                   HorizontalAlignment="Center"/>
     </Grid>
-
+    
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Uid="add"
