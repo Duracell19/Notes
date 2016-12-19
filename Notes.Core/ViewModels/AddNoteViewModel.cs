@@ -84,8 +84,6 @@ namespace Notes.Core.ViewModels
         /// This command is used to attach file
         /// </summary>
         private void AttachFile()
-        {
-
-        }
+        { }
     }
 }
