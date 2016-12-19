@@ -28,7 +28,7 @@ namespace Notes.Core.ViewModels
             get { return _title; }
             set
             {
-                _title = value;
+                _title = value; 
                 RaisePropertyChanged(() => Title);
             }
         }
