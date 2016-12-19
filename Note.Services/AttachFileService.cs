@@ -1,5 +1,6 @@
 ﻿using Note.Infrastructure.Interfaces;
 using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
 using System.Threading.Tasks;
 
 namespace Note.Services
@@ -8,15 +9,12 @@ namespace Note.Services
     {
         public AttachFileService()
         {
-
         }
 
-        public async Task FilePickerAsync()
+        public async Task<FileData> FilePickerAsync()
         {
             var result = await CrossFilePicker.Current.PickFile();
-            var data = result.DataArray;
-            var title = result.FileName;
-
+            return result;
         }
     }
 }
