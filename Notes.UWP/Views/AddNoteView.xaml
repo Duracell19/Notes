@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBox x:Uid="title" 
-                 Text="{Binding Title, Mode=TwoWay}"
+                 Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  FontFamily="Segoe WP Semibold"
                  FontSize="15"/>
         <local:RichEditEx  x:Uid="text" 
