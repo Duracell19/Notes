@@ -88,7 +88,7 @@ namespace Notes.Core.ViewModels
         /// </summary>
         private async void AttachFileAsync()
         {
-            
+            await _attachFileService.FilePickerAsync();
         }
     }
 }

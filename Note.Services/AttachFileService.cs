@@ -15,6 +15,7 @@ namespace Note.Services
         {
             var result = await CrossFilePicker.Current.PickFile();
             var data = result.DataArray;
+            var title = result.FileName;
 
         }
     }
