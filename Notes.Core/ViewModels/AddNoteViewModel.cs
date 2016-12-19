@@ -16,7 +16,7 @@ namespace Notes.Core.ViewModels
         private NoteInfo _noteInfo;
         private List<NoteInfo> _notes;
         private string _title;
-        private string _text;
+        private string _text; 
 
         public ICommand SaveNoteCommand { get; set; }
         public ICommand AttachFileCommand { get; set; }
