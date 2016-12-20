@@ -142,7 +142,7 @@
     <value>Сохранить</value>
   </data>
   <data name="searchText.PlaceholderText" xml:space="preserve">
-    <value>Поиск</value>
+    <value>Введите текст для поиска..</value>
   </data>
   <data name="sort.Label" xml:space="preserve">
     <value>Сортировать</value>

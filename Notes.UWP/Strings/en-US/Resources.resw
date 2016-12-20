@@ -142,7 +142,7 @@
     <value>Save</value>
   </data>
   <data name="searchText.PlaceholderText" xml:space="preserve">
-    <value>Search</value>
+    <value>Type to search..</value>
   </data>
   <data name="sort.Label" xml:space="preserve">
     <value>Sort</value>
