@@ -19,6 +19,7 @@ namespace Notes.Core.ViewModels
         private string _title;
         private string _text;
         private bool _isNoteEnabled;
+        private string _titleOfAttachedFile;
 
         public ICommand SaveNoteCommand { get; set; }
         public ICommand EditNoteCommand { get; set; }
@@ -56,6 +57,16 @@ namespace Notes.Core.ViewModels
                 RaisePropertyChanged(() => IsNoteEnabled);
             }
         }
+
+        public string TitleOfAttachedFile
+        {
+            get { return _titleOfAttachedFile; }
+            set
+            {
+                _titleOfAttachedFile = value;
+                RaisePropertyChanged(() => TitleOfAttachedFile);
+            }
+        }
         /// <summary>
         /// This is constructor
         /// </summary>
@@ -85,6 +96,7 @@ namespace Notes.Core.ViewModels
 
             Title = _noteInfo.Title;
             Text = _noteInfo.Text;
+            TitleOfAttachedFile = _noteInfo.TitleOfAttachedFile;
 
             _notes = await _fileService.LoadAsync<List<NoteInfo>>(Defines.NOTES_FILE_NAME);
         }

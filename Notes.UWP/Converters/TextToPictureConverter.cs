@@ -8,6 +8,7 @@ namespace Notes.UWP.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             string picture = "";
+
             if (value == null)
             {
                 return picture;

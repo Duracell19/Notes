@@ -16,7 +16,8 @@ namespace Notes.Core.ViewModels
         private NoteInfo _noteInfo;
         private List<NoteInfo> _notes;
         private string _title;
-        private string _text; 
+        private string _text;
+        private string _titleOfAttachedFile;
 
         public ICommand SaveNoteCommand { get; set; }
         public ICommand AttachFileCommand { get; set; }
@@ -40,6 +41,16 @@ namespace Notes.Core.ViewModels
             {
                 _text = value;
                 RaisePropertyChanged(() => Text);
+            }
+        }
+
+        public string TitleOfAttachedFile
+        {
+            get { return _titleOfAttachedFile; }
+            set
+            {
+                _titleOfAttachedFile = value;
+                RaisePropertyChanged(() => TitleOfAttachedFile);
             }
         }
         /// <summary>
@@ -93,6 +104,7 @@ namespace Notes.Core.ViewModels
             {
                 _noteInfo.DataOfAttachedFile = result.DataArray;
                 _noteInfo.TitleOfAttachedFile = result.FileName;
+                TitleOfAttachedFile = result.FileName;
             }
         }
     }

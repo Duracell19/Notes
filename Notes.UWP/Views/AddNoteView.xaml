@@ -11,14 +11,22 @@
     <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBox x:Uid="title" 
                  Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  FontFamily="Segoe WP Semibold"
                  FontSize="15"/>
+        <StackPanel Grid.Row="1" 
+                    Visibility="{Binding TitleOfAttachedFile, Converter={StaticResource SetVisibilityStackPanel}}">
+            <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
+                   Style="{StaticResource ImageOfAttachedFileStyle}"/>
+            <TextBlock Text="{Binding TitleOfAttachedFile}"
+                       Style="{StaticResource TextBlockTitleOfAttachedFile}"/>
+        </StackPanel>
         <local:RichEditEx  x:Uid="text" 
-                           Grid.Row="1"
+                           Grid.Row="2"
                            Text="{Binding Text, Mode=TwoWay}" 
                            FontFamily="Segoe UI Semibold"
                            FontSize="25"/>

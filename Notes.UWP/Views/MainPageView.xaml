@@ -45,10 +45,10 @@
                                    Style="{StaticResource TextBlockTitleStyle}"/>
                         <StackPanel Visibility="{Binding TitleOfAttachedFile, Converter={StaticResource SetVisibilityStackPanel}}">
                             <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
-                               Width="70"
-                               Height="70"/>
+                                   Style="{StaticResource ImageOfAttachedFileStyle}"
+                                   HorizontalAlignment="Left"/>
                             <TextBlock Text="{Binding TitleOfAttachedFile}"
-                                   Style="{StaticResource TextBlockTitleOfAttachedFile}"/>
+                                       Style="{StaticResource TextBlockTitleOfAttachedFile}"/>
                         </StackPanel>
                         <TextBlock Text="{Binding DateOfCreation}"
                                    Style="{StaticResource TextBlockDateStyle}"/>

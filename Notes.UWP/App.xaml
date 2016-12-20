@@ -14,11 +14,13 @@
             <local:TextToVisibilityConverter x:Key="SetVisibilityStackPanel"/>
 
             <Style TargetType="TextBlock" x:Key="TextBlockTitleStyle">
+                <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
                 <Setter Property="FontSize" Value="30"/>
             </Style>
 
             <Style TargetType="TextBlock" x:Key="TextBlockDateStyle">
+                <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="FontFamily" Value="Segoe Print"/>
                 <Setter Property="FontSize" Value="10"/>
             </Style>
@@ -30,8 +32,21 @@
             </Style>
 
             <Style TargetType="TextBlock" x:Key="TextBlockTitleOfAttachedFile">
+                <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
                 <Setter Property="FontSize" Value="17"/>
+            </Style>
+
+            <Style TargetType="Image" x:Key="ImageOfAttachedFileStyle">
+                <Setter Property="Width" Value="70"/>
+                <Setter Property="Height" Value="70"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+
+            <Style TargetType="TextBox" x:Key="TextBoxTitleStyle">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
+                <Setter Property="FontSize" Value="15"/>
             </Style>
 
         </ResourceDictionary>
