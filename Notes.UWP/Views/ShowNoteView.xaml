@@ -8,7 +8,7 @@
     xmlns:local="using:Notes.UWP"
     mc:Ignorable="d">
 
-    <Grid Background="#4A5459">
+    <Grid Background="#CC000000">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -16,12 +16,12 @@
         </Grid.RowDefinitions>
         <TextBox Text="{Binding Title, Mode=TwoWay}"
                  Style="{StaticResource TextBoxTitleStyle}"/>
-        <StackPanel Grid.Row="1" 
+        <StackPanel Grid.Row="1"
                     Visibility="{Binding TitleOfAttachedFile, Converter={StaticResource SetVisibilityStackPanel}}">
             <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
                    Style="{StaticResource ImageOfAttachedFileStyle}"/>
-            <TextBlock Text="{Binding TitleOfAttachedFile}"
-                       Style="{StaticResource TextBlockTitleOfAttachedFile}"/>
+            <TextBox Text="{Binding TitleOfAttachedFile}"
+                     Style="{StaticResource TextBoxTitleStyle}"/>
         </StackPanel>
         <local:RichEditEx  x:Uid="text"
                            Grid.Row="2"

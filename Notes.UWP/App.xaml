@@ -46,7 +46,7 @@
             <Style TargetType="TextBox" x:Key="TextBoxTitleStyle">
                 <Setter Property="IsEnabled" Value="False"/>
                 <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
-                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontSize" Value="17"/>
             </Style>
 
         </ResourceDictionary>
