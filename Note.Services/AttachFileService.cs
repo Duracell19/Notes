@@ -19,8 +19,7 @@ namespace Note.Services
         /// <returns>This method return Tasks of FileData</returns>
         public async Task<FileData> FilePickerAsync()
         {
-            var result = await CrossFilePicker.Current.PickFile();
-            return result;
+            return await CrossFilePicker.Current.PickFile();
         }
     }
 }
