@@ -4,6 +4,7 @@ using Note.Infrastructure.Interfaces;
 using Note.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Notes.Core.ViewModels
@@ -18,7 +19,9 @@ namespace Notes.Core.ViewModels
         private string _title;
         private string _text;
         private string _titleOfAttachedFile;
-
+        /// <summary>
+        /// This is commands
+        /// </summary>
         public ICommand SaveNoteCommand { get; set; }
         public ICommand AttachFileCommand { get; set; }
         /// <summary>
@@ -67,8 +70,8 @@ namespace Notes.Core.ViewModels
             _jsonConverter = jsonConverter;
             _attachFileService = attachFileService;
 
-            SaveNoteCommand = new MvxCommand(SaveNoteAsync);
-            AttachFileCommand = new MvxCommand(AttachFileAsync);
+            SaveNoteCommand = new MvxAsyncCommand(SaveNoteAsync);
+            AttachFileCommand = new MvxAsyncCommand(AttachFileAsync);
         }
         /// <summary>
         /// This is method to initialize variables
@@ -86,7 +89,7 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command is used to save notes
         /// </summary>
-        private async void SaveNoteAsync()
+        private async Task SaveNoteAsync()
         {
             _noteInfo.Text = Text;
             _noteInfo.Title = Title;
@@ -99,7 +102,7 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command is used to attach file
         /// </summary>
-        private async void AttachFileAsync()
+        private async Task AttachFileAsync()
         {
             var result = await _attachFileService.FilePickerAsync();
             if (result != null)

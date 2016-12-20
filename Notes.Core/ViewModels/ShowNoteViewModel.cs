@@ -21,7 +21,9 @@ namespace Notes.Core.ViewModels
         private string _text;
         private bool _isNoteEnabled;
         private string _titleOfAttachedFile;
-
+        /// <summary>
+        /// This is commands
+        /// </summary>
         public ICommand SaveNoteCommand { get; set; }
         public ICommand EditNoteCommand { get; set; }
         public ICommand DeleteNoteCommand { get; set; }
@@ -84,10 +86,10 @@ namespace Notes.Core.ViewModels
             _changeNoteService = changeNoteService;
             _attachFileService = attachFileService;
 
-            SaveNoteCommand = new MvxCommand(SaveNoteAsync);
+            SaveNoteCommand = new MvxAsyncCommand(SaveNoteAsync);
             EditNoteCommand = new MvxCommand(EditNote);
-            DeleteNoteCommand = new MvxCommand(DeleteNoteAsync);
-            AttachFileCommand = new MvxCommand(AttachFileAsync);
+            DeleteNoteCommand = new MvxAsyncCommand(DeleteNoteAsync);
+            AttachFileCommand = new MvxAsyncCommand(AttachFileAsync);
         }
         /// <summary>
         /// This is asynchronous method to initialize variables
@@ -108,7 +110,7 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command to save notes
         /// </summary>
-        private async void SaveNoteAsync()
+        private async Task SaveNoteAsync()
         {
             var item = new NoteInfo();
             item.DateOfCreation = _noteInfo.DateOfCreation;
@@ -130,7 +132,7 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command to delete note
         /// </summary>
-        private async void DeleteNoteAsync()
+        private async Task DeleteNoteAsync()
         {
             await _changeNoteService.DeleteAsync(_notes, _noteInfo);
             ShowViewModel<MainPageViewModel>();
@@ -138,7 +140,7 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command to attach file
         /// </summary>
-        private async void AttachFileAsync()
+        private async Task AttachFileAsync()
         {
             var result = await _attachFileService.FilePickerAsync();
             if (result != null)
