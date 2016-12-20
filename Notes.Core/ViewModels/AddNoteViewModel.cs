@@ -59,7 +59,9 @@ namespace Notes.Core.ViewModels
         /// <param name="fileService">This is parameter used to work with file service</param>
         /// <param name="jsonConverter">This is parameter used to work with json converter service</param>
         /// <param name="attachFileService">This is parameter used to work with attach file service</param>
-        public AddNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter, IAttachFileService attachFileService)
+        public AddNoteViewModel(IFileService fileService,
+            IJsonConverterService jsonConverter, 
+            IAttachFileService attachFileService)
         {
             _fileService = fileService;
             _jsonConverter = jsonConverter;

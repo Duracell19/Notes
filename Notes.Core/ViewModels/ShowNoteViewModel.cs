@@ -14,6 +14,7 @@ namespace Notes.Core.ViewModels
         private readonly IFileService _fileService;
         private readonly IJsonConverterService _jsonConverter;
         private readonly IChangeNoteService _changeNoteService;
+        private readonly IAttachFileService _attachFileService;
         private List<NoteInfo> _notes;
         private NoteInfo _noteInfo;
         private string _title;
@@ -73,16 +74,20 @@ namespace Notes.Core.ViewModels
         /// <param name="fileService">This is parameter used to work with file service</param>
         /// <param name="jsonConverter">This is parameter used to work with json converter service</param>
         /// <param name="changeNoteService">This is parameter used to work with change note service</param>
-        public ShowNoteViewModel(IFileService fileService, IJsonConverterService jsonConverter, IChangeNoteService changeNoteService)
+        public ShowNoteViewModel(IFileService fileService, 
+            IJsonConverterService jsonConverter,
+            IChangeNoteService changeNoteService,
+            IAttachFileService attachFileService)
         {
             _fileService = fileService;
             _jsonConverter = jsonConverter;
             _changeNoteService = changeNoteService;
+            _attachFileService = attachFileService;
 
             SaveNoteCommand = new MvxCommand(SaveNoteAsync);
             EditNoteCommand = new MvxCommand(EditNote);
             DeleteNoteCommand = new MvxCommand(DeleteNoteAsync);
-            AttachFileCommand = new MvxCommand(AttachFile);
+            AttachFileCommand = new MvxCommand(AttachFileAsync);
         }
         /// <summary>
         /// This is asynchronous method to initialize variables
@@ -107,6 +112,8 @@ namespace Notes.Core.ViewModels
         {
             var item = new NoteInfo();
             item.DateOfCreation = _noteInfo.DateOfCreation;
+            item.TitleOfAttachedFile = _noteInfo.TitleOfAttachedFile;
+            item.DataOfAttachedFile = _noteInfo.DataOfAttachedFile;
             item.Title = Title;
             item.Text = Text;
             item.DateOfLastChange = string.Format("Date of last change: {0}", DateTime.Now.ToString());
@@ -131,9 +138,15 @@ namespace Notes.Core.ViewModels
         /// <summary>
         /// This command to attach file
         /// </summary>
-        private void AttachFile()
+        private async void AttachFileAsync()
         {
-
+            var result = await _attachFileService.FilePickerAsync();
+            if (result != null)
+            {
+                _noteInfo.DataOfAttachedFile = result.DataArray;
+                _noteInfo.TitleOfAttachedFile = result.FileName;
+                TitleOfAttachedFile = result.FileName;
+            }
         }
     }
 }
