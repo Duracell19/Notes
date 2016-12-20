@@ -151,6 +151,10 @@
       <Project>{62A2DD86-758D-4378-847A-E55FE84BE097}</Project>
       <Name>Notes.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Note.Models\Notes.Models.csproj">
+      <Project>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</Project>
+      <Name>Notes.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Notes.Core\Notes.Core.csproj">
       <Project>{8f4ed4a8-e8ea-4c30-9bb9-50872cab42d4}</Project>
       <Name>Notes.Core</Name>
