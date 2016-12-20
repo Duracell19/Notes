@@ -23,7 +23,7 @@
             <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
                    Style="{StaticResource ImageOfAttachedFileStyle}"/>
             <TextBox Text="{Binding TitleOfAttachedFile}"
-                     Style="{StaticResource TextBoxTitleStyle}"/>
+                     Style="{StaticResource TextBoxTitleOfAttachedFileStyle}"/>
         </StackPanel>
         <local:RichEditEx  x:Uid="text"
                            Grid.Row="2"

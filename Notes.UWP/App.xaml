@@ -31,7 +31,7 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
             </Style>
 
-            <Style TargetType="TextBlock" x:Key="TextBlockTitleOfAttachedFile">
+            <Style TargetType="TextBlock" x:Key="TextBlockTitleOfAttachedFileStyle">
                 <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
                 <Setter Property="FontSize" Value="17"/>
@@ -46,7 +46,13 @@
             <Style TargetType="TextBox" x:Key="TextBoxTitleStyle">
                 <Setter Property="IsEnabled" Value="False"/>
                 <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
-                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="FontSize" Value="30"/>
+            </Style>
+
+            <Style TargetType="TextBox" x:Key="TextBoxTitleOfAttachedFileStyle">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
+                <Setter Property="FontSize" Value="15"/>
             </Style>
 
         </ResourceDictionary>
