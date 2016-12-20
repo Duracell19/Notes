@@ -28,7 +28,7 @@
         <CommandBar>
             <AppBarButton x:Uid="save" 
                           Icon="Accept"
-                          IsEnabled="{Binding Title, Converter={StaticResource SetVisibilityButton}}"
+                          IsEnabled="{Binding Title, Converter={StaticResource SetEnabledButton}}"
                           Command="{Binding SaveNoteCommand}"/>
             <AppBarButton x:Uid="attach" 
                           Icon="Attach"

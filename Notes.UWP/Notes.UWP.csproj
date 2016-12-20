@@ -97,8 +97,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\BoolToEnableConverter.cs" />
     <Compile Include="Converters\TextToPictureConverter.cs" />
+    <Compile Include="Converters\TextToEnableConverter.cs" />
     <Compile Include="Converters\TextToVisibilityConverter.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

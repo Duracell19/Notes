@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Notes.UWP.Converters
 {
-    public class BoolToVisibilityConverter : IValueConverter
+    public class BoolToEnableConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string culture)
         {

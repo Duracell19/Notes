@@ -43,11 +43,13 @@
                     <StackPanel>
                         <TextBlock Text="{Binding Title}"
                                    Style="{StaticResource TextBlockTitleStyle}"/>
-                        <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
+                        <StackPanel Visibility="{Binding TitleOfAttachedFile, Converter={StaticResource SetVisibilityStackPanel}}">
+                            <Image Source="{Binding TitleOfAttachedFile, Converter={StaticResource SetPictureOfAttachedFile}}"
                                Width="70"
                                Height="70"/>
-                        <TextBlock Text="{Binding TitleOfAttachedFile}"
+                            <TextBlock Text="{Binding TitleOfAttachedFile}"
                                    Style="{StaticResource TextBlockTitleOfAttachedFile}"/>
+                        </StackPanel>
                         <TextBlock Text="{Binding DateOfCreation}"
                                    Style="{StaticResource TextBlockDateStyle}"/>
                         <TextBlock Text="{Binding DateOfLastChange}"

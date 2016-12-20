@@ -4,13 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Notes.UWP.Converters"
     RequestedTheme="Light">
-    
+
     <Application.Resources>
         <ResourceDictionary>
 
-            <local:BoolToVisibilityConverter x:Key="SetVisibilityText"/>
-            <local:TextToVisibilityConverter x:Key="SetVisibilityButton"/>
+            <local:BoolToEnableConverter x:Key="SetVisibilityText"/>
+            <local:TextToEnableConverter x:Key="SetEnabledButton"/>
             <local:TextToPictureConverter x:Key="SetPictureOfAttachedFile"/>
+            <local:TextToVisibilityConverter x:Key="SetVisibilityStackPanel"/>
 
             <Style TargetType="TextBlock" x:Key="TextBlockTitleStyle">
                 <Setter Property="FontFamily" Value="Segoe WP Semibold"/>
